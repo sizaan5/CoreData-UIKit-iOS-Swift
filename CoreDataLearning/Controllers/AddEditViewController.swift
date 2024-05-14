@@ -25,11 +25,13 @@ class AddEditViewController: UIViewController {
             }
         }
     }
+    @IBOutlet weak var btnAddVehicle: UIButton!
     
     //MARK: - Properties
     var isFromEdit: Bool = false
     private var manager = EmployeeManager()
     private var selectedEmployee: Employee?
+    var vehicles: [Vehicle] = []
     var empId: UUID?
 
     override func viewDidLoad() {
@@ -43,6 +45,14 @@ class AddEditViewController: UIViewController {
             self.txtEmail.text = self.selectedEmployee?.email
             self.txtPassportNumber.text = self.selectedEmployee?.passport?.passportId
             self.txtPassportPlaceOfIssue.text = self.selectedEmployee?.passport?.placeOfIssue
+            var title = ""
+            for vehicle in self.vehicles {
+                if title == "" {
+                    title = vehicle.name
+                } else {
+                    title = "\(title), \(vehicle.name)"
+                }
+            }
         }
     }
     
@@ -71,7 +81,7 @@ class AddEditViewController: UIViewController {
         if self.isFromEdit {
             let passport = Passport(_id: (self.selectedEmployee?.passport?.id)!, _passportId: self.txtPassportNumber.text, _placeOfIssue: self.txtPassportPlaceOfIssue.text)
             
-            let employee = Employee(_id: (self.selectedEmployee?.id)!, _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport)
+            let employee = Employee(_id: (self.selectedEmployee?.id)!, _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport, _vehicles: self.vehicles)
             
             if !self.manager.updateEmployee(record: employee) {
                 return
@@ -79,13 +89,35 @@ class AddEditViewController: UIViewController {
         } else {
             let passport = Passport(_id: UUID(), _passportId: self.txtPassportNumber.text, _placeOfIssue: self.txtPassportPlaceOfIssue.text)
             
-            let employee = Employee(_id: UUID(), _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport)
+            let employee = Employee(_id: UUID(), _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport, _vehicles: self.vehicles)
             
             self.manager.create(record: employee)
         }
         
         self.navigationController?.popViewController(animated: true)
     }
+    
+    @IBAction func addVehicleAction(_ sender: UIButton) {
+        self.view.endEditing(true)
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddVehicleViewController") as? AddVehicleViewController {
+            vc.action = { vehicle in
+                if let vehicle {
+                    self.vehicles.append(vehicle)
+                    var title = ""
+                    for vehicle in self.vehicles {
+                        if title == "" {
+                            title = vehicle.name
+                        } else {
+                            title = "\(title), \(vehicle.name)"
+                        }
+                    }
+                    self.btnAddVehicle.setTitle(title, for: .normal)
+                }
+            }
+            self.navigationController?.present(vc, animated: true)
+        }
+    }
+    
     
     @IBAction func imgAction(_ sender: UIButton) {
         self.configureImagePicker()

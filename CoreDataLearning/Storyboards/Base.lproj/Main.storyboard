@@ -65,7 +65,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="Tcu-yf-0PU">
-                                <rect key="frame" x="24" y="279.66666666666669" width="345" height="252.00000000000006"/>
+                                <rect key="frame" x="24" y="279.66666666666669" width="345" height="318.00000000000006"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Full Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d0M-l9-J5w">
                                         <rect key="frame" x="0.0" y="0.0" width="345" height="54"/>
@@ -94,10 +94,18 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uX0-ee-v20">
+                                        <rect key="frame" x="0.0" y="263.99999999999994" width="345" height="54"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="gray" title="Add Vehicle"/>
+                                        <connections>
+                                            <action selector="addVehicleAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z9z-zx-Jhj"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYn-Fc-hxP">
-                                <rect key="frame" x="24" y="555.66666666666663" width="345" height="34.333333333333371"/>
+                                <rect key="frame" x="24" y="621.66666666666663" width="345" height="34.333333333333371"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Save"/>
                                 <connections>
@@ -125,6 +133,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="0hl-wF-gcY"/>
                     <connections>
+                        <outlet property="btnAddVehicle" destination="uX0-ee-v20" id="WRp-kf-kNb"/>
                         <outlet property="btnSaveUpdate" destination="QYn-Fc-hxP" id="Sga-26-Qd5"/>
                         <outlet property="imgProfilePic" destination="64M-Yw-dla" id="ms4-CP-DGq"/>
                         <outlet property="txtEmail" destination="4FP-S9-fJK" id="PgA-ca-rj8"/>
@@ -136,6 +145,113 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2040" y="4"/>
+        </scene>
+        <!--Vehicles View Controller-->
+        <scene sceneID="tOZ-Pw-vq3">
+            <objects>
+                <viewController storyboardIdentifier="VehiclesViewController" id="Fjh-PV-9aQ" customClass="VehiclesViewController" customModule="CoreDataLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="85r-ao-K7g">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="fF2-dH-zs8">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Fjh-PV-9aQ" id="BnX-Ut-5Ug"/>
+                                    <outlet property="delegate" destination="Fjh-PV-9aQ" id="Tat-bI-JlH"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="hPE-71-2Ko"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="fF2-dH-zs8" firstAttribute="top" secondItem="hPE-71-2Ko" secondAttribute="top" id="LhS-0H-BjM"/>
+                            <constraint firstItem="fF2-dH-zs8" firstAttribute="leading" secondItem="hPE-71-2Ko" secondAttribute="leading" id="O3e-y2-hOk"/>
+                            <constraint firstItem="hPE-71-2Ko" firstAttribute="bottom" secondItem="fF2-dH-zs8" secondAttribute="bottom" id="ub1-MR-ESH"/>
+                            <constraint firstItem="hPE-71-2Ko" firstAttribute="trailing" secondItem="fF2-dH-zs8" secondAttribute="trailing" id="zY5-wC-Gb6"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="fF2-dH-zs8" id="ycB-IA-pqW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cSm-KQ-cu1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1298" y="704"/>
+        </scene>
+        <!--Add Vehicle View Controller-->
+        <scene sceneID="vM6-d6-r3o">
+            <objects>
+                <viewController storyboardIdentifier="AddVehicleViewController" id="RQG-zf-lS4" customClass="AddVehicleViewController" customModule="CoreDataLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TJ2-dY-z0Q">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u5f-aR-cep">
+                                <rect key="frame" x="0.0" y="596" width="393" height="256"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vehicle Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dxI-Aq-3gw">
+                                        <rect key="frame" x="24" y="62" width="345" height="54"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="hcT-3Q-3Yn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xua-fd-kPT">
+                                        <rect key="frame" x="24" y="128" width="345" height="54"/>
+                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="i3i-lx-F0J"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="54y-Tg-0nH">
+                                        <rect key="frame" x="308" y="18" width="61" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="32" id="tvg-Ch-8RA"/>
+                                        </constraints>
+                                        <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Done"/>
+                                        <connections>
+                                            <action selector="doneAction:" destination="RQG-zf-lS4" eventType="touchUpInside" id="wD4-iN-Wsh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <constraints>
+                                    <constraint firstItem="54y-Tg-0nH" firstAttribute="trailing" secondItem="dxI-Aq-3gw" secondAttribute="trailing" id="3pf-BS-sbW"/>
+                                    <constraint firstItem="dxI-Aq-3gw" firstAttribute="top" secondItem="54y-Tg-0nH" secondAttribute="bottom" constant="12" id="F6k-AW-pxD"/>
+                                    <constraint firstItem="Xua-fd-kPT" firstAttribute="trailing" secondItem="dxI-Aq-3gw" secondAttribute="trailing" id="IhO-tw-TZu"/>
+                                    <constraint firstItem="Xua-fd-kPT" firstAttribute="top" secondItem="dxI-Aq-3gw" secondAttribute="bottom" constant="12" id="bSy-rG-7TI"/>
+                                    <constraint firstItem="Xua-fd-kPT" firstAttribute="leading" secondItem="dxI-Aq-3gw" secondAttribute="leading" id="cap-mY-f5G"/>
+                                    <constraint firstAttribute="trailing" secondItem="dxI-Aq-3gw" secondAttribute="trailing" constant="24" id="e0A-aw-nCz"/>
+                                    <constraint firstItem="54y-Tg-0nH" firstAttribute="top" secondItem="u5f-aR-cep" secondAttribute="top" constant="18" id="e6p-gu-UzR"/>
+                                    <constraint firstItem="dxI-Aq-3gw" firstAttribute="leading" secondItem="u5f-aR-cep" secondAttribute="leading" constant="24" id="jay-hX-FDf"/>
+                                    <constraint firstAttribute="bottom" secondItem="Xua-fd-kPT" secondAttribute="bottom" constant="74" id="syM-fA-AbM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="sHv-8E-FeB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="u5f-aR-cep" firstAttribute="leading" secondItem="sHv-8E-FeB" secondAttribute="leading" id="LBh-57-2Nl"/>
+                            <constraint firstItem="sHv-8E-FeB" firstAttribute="trailing" secondItem="u5f-aR-cep" secondAttribute="trailing" id="dHZ-jp-hVG"/>
+                            <constraint firstAttribute="bottom" secondItem="u5f-aR-cep" secondAttribute="bottom" id="yY4-QM-an9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="txtType" destination="Xua-fd-kPT" id="SNy-1K-6hG"/>
+                        <outlet property="txtVehicleName" destination="dxI-Aq-3gw" id="iGO-Bi-GnL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K3v-MQ-iPs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2792" y="704"/>
         </scene>
         <!--Passport View Controller-->
         <scene sceneID="zg6-0P-AtT">
@@ -194,6 +310,9 @@
         <image name="person.fill" catalog="system" width="32" height="32"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.8980392157" green="0.8980392157" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGray6Color">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

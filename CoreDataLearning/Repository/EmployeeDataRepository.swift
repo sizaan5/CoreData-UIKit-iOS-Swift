@@ -27,8 +27,20 @@ struct EmployeeDataRepository: EmployeeRepository {
 
             cdEmployee.toPassport = cdPassport
         }
+        
+        if(record.vehicles != nil && record.vehicles?.count != 0) {
+            var vehicleSet = Set<CDVehicle>()
+            record.vehicles?.forEach({ (vehicle) in
+                let cdVehicle = CDVehicle(context: PersistentStorage.shared.context)
+                cdVehicle.id = vehicle.id
+                cdVehicle.type = vehicle.type
+                cdVehicle.name = vehicle.name
+                
+                vehicleSet.insert(cdVehicle)
+            })
+            cdEmployee.toVehicle = vehicleSet
+        }
         PersistentStorage.shared.saveContext()
-
     }
 
     func getAll() -> [Employee]? {

@@ -13,6 +13,16 @@
 		330B760B2BF352AD006CBFC1 /* PassportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B760A2BF352AD006CBFC1 /* PassportViewController.swift */; };
 		330B760E2BF352C4006CBFC1 /* PassportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B760C2BF352C4006CBFC1 /* PassportTableViewCell.swift */; };
 		330B760F2BF352C4006CBFC1 /* PassportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330B760D2BF352C4006CBFC1 /* PassportTableViewCell.xib */; };
+		330B76122BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76102BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift */; };
+		330B76132BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76112BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift */; };
+		330B76152BF37B54006CBFC1 /* Vehicle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76142BF37B54006CBFC1 /* Vehicle.swift */; };
+		330B76172BF37C12006CBFC1 /* VehicleDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76162BF37C12006CBFC1 /* VehicleDataRepository.swift */; };
+		330B76192BF37C54006CBFC1 /* CDVehicleExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76182BF37C54006CBFC1 /* CDVehicleExtension.swift */; };
+		330B761B2BF37DEF006CBFC1 /* VehiclesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B761A2BF37DEF006CBFC1 /* VehiclesViewController.swift */; };
+		330B761D2BF3825B006CBFC1 /* AddVehicleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B761C2BF3825B006CBFC1 /* AddVehicleViewController.swift */; };
+		330B76202BF387AD006CBFC1 /* VehiclesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */; };
+		330B76212BF387AD006CBFC1 /* VehiclesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */; };
+		330B76232BF38841006CBFC1 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76222BF38841006CBFC1 /* VehicleManager.swift */; };
 		33A0568B2BF21E690054FDB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568A2BF21E690054FDB1 /* AppDelegate.swift */; };
 		33A0568D2BF21E690054FDB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568C2BF21E690054FDB1 /* SceneDelegate.swift */; };
 		33A0568F2BF21E690054FDB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568E2BF21E690054FDB1 /* ViewController.swift */; };
@@ -43,6 +53,16 @@
 		330B760A2BF352AD006CBFC1 /* PassportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportViewController.swift; sourceTree = "<group>"; };
 		330B760C2BF352C4006CBFC1 /* PassportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassportTableViewCell.swift; sourceTree = "<group>"; };
 		330B760D2BF352C4006CBFC1 /* PassportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PassportTableViewCell.xib; sourceTree = "<group>"; };
+		330B76102BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVehicle+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		330B76112BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDVehicle+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		330B76142BF37B54006CBFC1 /* Vehicle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vehicle.swift; sourceTree = "<group>"; };
+		330B76162BF37C12006CBFC1 /* VehicleDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleDataRepository.swift; sourceTree = "<group>"; };
+		330B76182BF37C54006CBFC1 /* CDVehicleExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDVehicleExtension.swift; sourceTree = "<group>"; };
+		330B761A2BF37DEF006CBFC1 /* VehiclesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesViewController.swift; sourceTree = "<group>"; };
+		330B761C2BF3825B006CBFC1 /* AddVehicleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddVehicleViewController.swift; sourceTree = "<group>"; };
+		330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesTableViewCell.swift; sourceTree = "<group>"; };
+		330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehiclesTableViewCell.xib; sourceTree = "<group>"; };
+		330B76222BF38841006CBFC1 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
 		33A056872BF21E690054FDB1 /* CoreDataLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A0568A2BF21E690054FDB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A0568C2BF21E690054FDB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +104,7 @@
 			children = (
 				330B76042BF34447006CBFC1 /* CDEmployeeExtension.swift */,
 				330B76062BF34466006CBFC1 /* CDPassportExtension.swift */,
+				330B76182BF37C54006CBFC1 /* CDVehicleExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -129,6 +150,8 @@
 				33A0568E2BF21E690054FDB1 /* ViewController.swift */,
 				33A056B32BF22B290054FDB1 /* AddEditViewController.swift */,
 				330B760A2BF352AD006CBFC1 /* PassportViewController.swift */,
+				330B761A2BF37DEF006CBFC1 /* VehiclesViewController.swift */,
+				330B761C2BF3825B006CBFC1 /* AddVehicleViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -145,11 +168,13 @@
 		33A056A32BF222780054FDB1 /* CoreDataSupportFiles */ = {
 			isa = PBXGroup;
 			children = (
-				330B76032BF34427006CBFC1 /* Extensions */,
+				330B76102BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift */,
+				330B76112BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift */,
 				33A056BB2BF243AB0054FDB1 /* CDPassport+CoreDataClass.swift */,
 				33A056BC2BF243AB0054FDB1 /* CDPassport+CoreDataProperties.swift */,
 				33A056A42BF2228F0054FDB1 /* CDEmployee+CoreDataClass.swift */,
 				33A056A52BF2228F0054FDB1 /* CDEmployee+CoreDataProperties.swift */,
+				330B76032BF34427006CBFC1 /* Extensions */,
 				33A056A82BF222BA0054FDB1 /* PersistentStorage.swift */,
 			);
 			path = CoreDataSupportFiles;
@@ -158,9 +183,10 @@
 		33A056AA2BF2235D0054FDB1 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				33A056C32BF32B670054FDB1 /* BaseRepository.swift */,
 				33A056AB2BF223670054FDB1 /* EmployeeDataRepository.swift */,
 				33A056C12BF245400054FDB1 /* PassportDataRepository.swift */,
-				33A056C32BF32B670054FDB1 /* BaseRepository.swift */,
+				330B76162BF37C12006CBFC1 /* VehicleDataRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -170,6 +196,7 @@
 			children = (
 				33A056AE2BF223A70054FDB1 /* Employee.swift */,
 				33A056BF2BF244550054FDB1 /* Passport.swift */,
+				330B76142BF37B54006CBFC1 /* Vehicle.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -179,6 +206,7 @@
 			children = (
 				33A056B12BF228570054FDB1 /* EmployeeManager.swift */,
 				330B76082BF34AE6006CBFC1 /* PassportManager.swift */,
+				330B76222BF38841006CBFC1 /* VehicleManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -198,6 +226,8 @@
 				33A056B82BF22C5E0054FDB1 /* EmployeeTableViewCell.xib */,
 				330B760C2BF352C4006CBFC1 /* PassportTableViewCell.swift */,
 				330B760D2BF352C4006CBFC1 /* PassportTableViewCell.xib */,
+				330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */,
+				330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -262,6 +292,7 @@
 			files = (
 				33A0569A2BF21E6A0054FDB1 /* LaunchScreen.storyboard in Resources */,
 				33A056BA2BF22C5E0054FDB1 /* EmployeeTableViewCell.xib in Resources */,
+				330B76212BF387AD006CBFC1 /* VehiclesTableViewCell.xib in Resources */,
 				33A056972BF21E6A0054FDB1 /* Assets.xcassets in Resources */,
 				33A056922BF21E690054FDB1 /* Main.storyboard in Resources */,
 				330B760F2BF352C4006CBFC1 /* PassportTableViewCell.xib in Resources */,
@@ -276,17 +307,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A056952BF21E690054FDB1 /* CoreDataLearning.xcdatamodeld in Sources */,
+				330B761B2BF37DEF006CBFC1 /* VehiclesViewController.swift in Sources */,
 				330B760E2BF352C4006CBFC1 /* PassportTableViewCell.swift in Sources */,
 				33A056AF2BF223A70054FDB1 /* Employee.swift in Sources */,
+				330B76202BF387AD006CBFC1 /* VehiclesTableViewCell.swift in Sources */,
+				330B76192BF37C54006CBFC1 /* CDVehicleExtension.swift in Sources */,
+				330B76152BF37B54006CBFC1 /* Vehicle.swift in Sources */,
 				330B76072BF34466006CBFC1 /* CDPassportExtension.swift in Sources */,
 				330B760B2BF352AD006CBFC1 /* PassportViewController.swift in Sources */,
+				330B76172BF37C12006CBFC1 /* VehicleDataRepository.swift in Sources */,
 				33A056AC2BF223670054FDB1 /* EmployeeDataRepository.swift in Sources */,
+				330B761D2BF3825B006CBFC1 /* AddVehicleViewController.swift in Sources */,
 				33A056B22BF228570054FDB1 /* EmployeeManager.swift in Sources */,
 				33A056A62BF2228F0054FDB1 /* CDEmployee+CoreDataClass.swift in Sources */,
 				33A056B92BF22C5E0054FDB1 /* EmployeeTableViewCell.swift in Sources */,
 				33A0568F2BF21E690054FDB1 /* ViewController.swift in Sources */,
 				33A056C42BF32B670054FDB1 /* BaseRepository.swift in Sources */,
+				330B76132BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift in Sources */,
 				33A0568B2BF21E690054FDB1 /* AppDelegate.swift in Sources */,
+				330B76232BF38841006CBFC1 /* VehicleManager.swift in Sources */,
+				330B76122BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift in Sources */,
 				33A056A72BF2228F0054FDB1 /* CDEmployee+CoreDataProperties.swift in Sources */,
 				33A056B42BF22B290054FDB1 /* AddEditViewController.swift in Sources */,
 				33A056BE2BF243AB0054FDB1 /* CDPassport+CoreDataProperties.swift in Sources */,

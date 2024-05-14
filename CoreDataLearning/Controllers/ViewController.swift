@@ -29,7 +29,8 @@ class ViewController: UIViewController {
         
         let btnAdd = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(self.addAction))
         let btnPassport = UIBarButtonItem(image: UIImage(systemName: "menucard"), style: .plain, target: self, action: #selector(self.passportAction))
-        navigationItem.rightBarButtonItems = [btnAdd, btnPassport]
+        let btnVehicle = UIBarButtonItem(image: UIImage(systemName: "car.side"), style: .plain, target: self, action: #selector(self.vehicleAction))
+        navigationItem.rightBarButtonItems = [btnAdd, btnPassport, btnVehicle]
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +46,7 @@ class ViewController: UIViewController {
         self.tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
     }
     
+    //MARK: - @objc
     @objc func addAction() {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEditViewController") as? AddEditViewController {
             vc.isFromEdit = false
@@ -56,7 +58,13 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-
+    @objc func vehicleAction() {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VehiclesViewController") as? VehiclesViewController {
+            vc.seeAll = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
 }
 
 extension ViewController: UITableViewDelegate {
@@ -66,18 +74,30 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-            let obj = self.employees[indexPath.row]
+        let obj = self.employees[indexPath.row]
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { action, view, complete in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEditViewController") as? AddEditViewController {
                 vc.isFromEdit = true
                 vc.empId = obj.id
+                vc.vehicles = obj.vehicles ?? []
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             complete(true)
         }
         edit.image = UIImage(systemName: "pencil")
         edit.backgroundColor = .blue
+        
+        let vehicle = UIContextualAction(style: .normal, title: "Vehicle") { action, view, complete in
+            if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VehiclesViewController") as? VehiclesViewController {
+                vc.vehicles = obj.vehicles ?? []
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            complete(true)
+        }
+        vehicle.image = UIImage(systemName: "car")
+        vehicle.backgroundColor = .brown
+        
         let delete = UIContextualAction(style: .destructive, title: "Delete") { action, view, complete in
             if self.manager.deleteEmployee(byIdentifier: obj.id) {
                 self.employees.removeAll(where: { ( $0.id == obj.id ) })
@@ -88,7 +108,11 @@ extension ViewController: UITableViewDelegate {
         delete.image = UIImage(systemName: "trash")
         delete.image?.withTintColor(.white)
         delete.backgroundColor = .red
-        return UISwipeActionsConfiguration(actions: [delete, edit])
+        if obj.vehicles?.count ?? 0 <= 0 {
+            return UISwipeActionsConfiguration(actions: [delete, edit])
+        } else {
+            return UISwipeActionsConfiguration(actions: [delete, edit, vehicle])
+        }
     }
 }
 
