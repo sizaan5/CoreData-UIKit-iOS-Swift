@@ -14,6 +14,8 @@ class AddEditViewController: UIViewController {
     @IBOutlet weak var imgProfilePic: UIImageView!
     @IBOutlet weak var txtFullName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
+    @IBOutlet weak var txtPassportNumber: UITextField!
+    @IBOutlet weak var txtPassportPlaceOfIssue: UITextField!
     @IBOutlet weak var btnSaveUpdate: UIButton! {
         didSet {
             if self.isFromEdit {
@@ -35,10 +37,12 @@ class AddEditViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         if self.isFromEdit {
-            self.selectedEmployee = self.manager.fetchEmployee(byIdentifier: self.empId!)
+            self.selectedEmployee = self.manager.getEmployee(byIdentifier: self.empId!)
             self.imgProfilePic.image = UIImage(data: (self.selectedEmployee?.profilePicture)!)
             self.txtFullName.text = self.selectedEmployee?.name
             self.txtEmail.text = self.selectedEmployee?.email
+            self.txtPassportNumber.text = self.selectedEmployee?.passport?.passportId
+            self.txtPassportPlaceOfIssue.text = self.selectedEmployee?.passport?.placeOfIssue
         }
     }
     
@@ -65,11 +69,19 @@ class AddEditViewController: UIViewController {
     //MARK: - IBActions
     @IBAction func saveAction(_ sender: Any) {
         if self.isFromEdit {
-            if !self.manager.updateEmployee(employee: Employee(name: self.txtFullName.text, email: self.txtEmail.text, profilePicture: self.imgProfilePic.image?.pngData(), id: selectedEmployee!.id)) {
+            let passport = Passport(_id: (self.selectedEmployee?.passport?.id)!, _passportId: self.txtPassportNumber.text, _placeOfIssue: self.txtPassportPlaceOfIssue.text)
+            
+            let employee = Employee(_id: (self.selectedEmployee?.id)!, _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport)
+            
+            if !self.manager.updateEmployee(record: employee) {
                 return
             }
         } else {
-            self.manager.createEmployee(employee: Employee(name: self.txtFullName.text, email: self.txtEmail.text, profilePicture: self.imgProfilePic.image?.pngData(), id: UUID()))
+            let passport = Passport(_id: UUID(), _passportId: self.txtPassportNumber.text, _placeOfIssue: self.txtPassportPlaceOfIssue.text)
+            
+            let employee = Employee(_id: UUID(), _name: self.txtFullName.text!, _email: self.txtEmail.text!, _profilePicture: (self.imgProfilePic.image?.pngData())!, _passport: passport)
+            
+            self.manager.create(record: employee)
         }
         
         self.navigationController?.popViewController(animated: true)

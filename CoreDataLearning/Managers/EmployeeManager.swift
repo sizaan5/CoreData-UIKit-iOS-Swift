@@ -8,26 +8,35 @@
 import Foundation
 
 struct EmployeeManager {
-    private let _employeeDataRepository = EmployeeDataRepository()
-
-    func createEmployee(employee: Employee) {
-        _employeeDataRepository.create(employee: employee)
+    private let _employeeRepository : EmployeeDataRepository = EmployeeDataRepository()
+    
+    func create(record: Employee) {
+        if(validatePassport(passport: record.passport) == false) {
+            record.passport = nil
+        }
+        _employeeRepository.create(record: record)
     }
-
-    func fetchEmployee() -> [Employee]? {
-        return _employeeDataRepository.getAll()
+    
+    func getAllEmployee() -> [Employee]? {
+        return _employeeRepository.getAll()
     }
-
-    func fetchEmployee(byIdentifier id: UUID) -> Employee?
-    {
-        return _employeeDataRepository.get(byIdentifier: id)
+    
+    func getEmployee(byIdentifier id: UUID) -> Employee? {
+        return _employeeRepository.get(byIdentifier: id)
     }
-
-    func updateEmployee(employee: Employee) -> Bool {
-        return _employeeDataRepository.update(employee: employee)
+    
+    func deleteEmployee(byIdentifier id: UUID) -> Bool {
+        return _employeeRepository.delete(byIdentifier: id)
     }
-
-    func deleteEmployee(id: UUID) -> Bool {
-        return _employeeDataRepository.delete(id: id)
+    
+    func updateEmployee(record: Employee) -> Bool {
+        return _employeeRepository.update(record: record)
+    }
+    
+    private func validatePassport(passport: Passport?) -> Bool {
+        if(passport == nil || passport?.passportId?.isEmpty == true || passport?.placeOfIssue?.isEmpty == true) {
+            return false
+        }
+        return true
     }
 }

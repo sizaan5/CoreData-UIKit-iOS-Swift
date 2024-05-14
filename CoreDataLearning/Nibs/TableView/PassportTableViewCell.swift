@@ -8,6 +8,10 @@
 import UIKit
 
 class PassportTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var lblPassportId: UILabel!
+    @IBOutlet weak var empName: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

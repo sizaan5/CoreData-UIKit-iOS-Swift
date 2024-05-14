@@ -27,14 +27,15 @@ class ViewController: UIViewController {
         print(path)
         self.setupTableView()
         
-        let btnAdd = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(self.buttonClicked))
-        navigationItem.rightBarButtonItem = btnAdd
+        let btnAdd = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(self.addAction))
+        let btnPassport = UIBarButtonItem(image: UIImage(systemName: "menucard"), style: .plain, target: self, action: #selector(self.passportAction))
+        navigationItem.rightBarButtonItems = [btnAdd, btnPassport]
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.employees = self.manager.fetchEmployee() ?? []
+        self.employees = self.manager.getAllEmployee() ?? []
         
         self.tableView.reloadData()
     }
@@ -44,9 +45,14 @@ class ViewController: UIViewController {
         self.tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
     }
     
-    @objc func buttonClicked() {
+    @objc func addAction() {
         if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEditViewController") as? AddEditViewController {
             vc.isFromEdit = false
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    @objc func passportAction() {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "PassportViewController") as? PassportViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -73,7 +79,7 @@ extension ViewController: UITableViewDelegate {
         edit.image = UIImage(systemName: "pencil")
         edit.backgroundColor = .blue
         let delete = UIContextualAction(style: .destructive, title: "Delete") { action, view, complete in
-            if self.manager.deleteEmployee(id: obj.id) {
+            if self.manager.deleteEmployee(byIdentifier: obj.id) {
                 self.employees.removeAll(where: { ( $0.id == obj.id ) })
                 self.tableView.reloadData()
             }
@@ -94,7 +100,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell {
             let obj = self.employees[indexPath.row]
-            cell.imgProfilePic.image = UIImage(data: obj.profilePicture!)
+            cell.imgProfilePic.image = UIImage(data: obj.profilePicture)
             cell.lblName.text = obj.name
             cell.lblEmail.text = obj.email
             return cell

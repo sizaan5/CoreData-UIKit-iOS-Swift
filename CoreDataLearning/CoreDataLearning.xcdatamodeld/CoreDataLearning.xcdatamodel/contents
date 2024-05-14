@@ -4,7 +4,19 @@
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="profilePic" optional="YES" attributeType="Binary"/>
+        <attribute name="profilePic" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <relationship name="toPassport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPassport" inverseName="toEmployee" inverseEntity="CDPassport"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
+    <entity name="CDPassport" representedClassName="CDPassport" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="passportId" optional="YES" attributeType="String"/>
+        <attribute name="placeOfIssue" optional="YES" attributeType="String"/>
+        <relationship name="toEmployee" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDEmployee" inverseName="toPassport" inverseEntity="CDEmployee"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>
