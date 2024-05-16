@@ -146,6 +146,40 @@
             </objects>
             <point key="canvasLocation" x="2040" y="4"/>
         </scene>
+        <!--Animals View Controller-->
+        <scene sceneID="Ok9-rP-wWe">
+            <objects>
+                <viewController storyboardIdentifier="AnimalsViewController" id="B4g-bk-9oj" customClass="AnimalsViewController" customModule="CoreDataLearning" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="10h-5k-wEW">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gWX-Vm-iAt">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="B4g-bk-9oj" id="f2p-8a-DoV"/>
+                                    <outlet property="delegate" destination="B4g-bk-9oj" id="ltm-8s-Y9T"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0g3-Qg-VB6"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0g3-Qg-VB6" firstAttribute="trailing" secondItem="gWX-Vm-iAt" secondAttribute="trailing" id="A0Y-NR-vPu"/>
+                            <constraint firstItem="gWX-Vm-iAt" firstAttribute="leading" secondItem="0g3-Qg-VB6" secondAttribute="leading" id="UWt-gX-85J"/>
+                            <constraint firstItem="0g3-Qg-VB6" firstAttribute="bottom" secondItem="gWX-Vm-iAt" secondAttribute="bottom" id="pqw-NH-yq6"/>
+                            <constraint firstItem="gWX-Vm-iAt" firstAttribute="top" secondItem="0g3-Qg-VB6" secondAttribute="top" id="xQr-XF-zQN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="gWX-Vm-iAt" id="Qbx-Eh-mjo"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f9H-wJ-l7B" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="370" y="704"/>
+        </scene>
         <!--Vehicles View Controller-->
         <scene sceneID="tOZ-Pw-vq3">
             <objects>

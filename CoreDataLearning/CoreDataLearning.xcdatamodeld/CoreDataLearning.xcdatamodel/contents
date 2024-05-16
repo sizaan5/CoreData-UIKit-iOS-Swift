@@ -1,12 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22225" systemVersion="23B81" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="CDAnimal" representedClassName="CDAnimal" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="image" optional="YES" attributeType="URI"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <uniquenessConstraints>
+            <uniquenessConstraint>
+                <constraint value="id"/>
+            </uniquenessConstraint>
+        </uniquenessConstraints>
+    </entity>
     <entity name="CDEmployee" representedClassName="CDEmployee" syncable="YES">
         <attribute name="email" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="profilePic" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
-        <relationship name="toPassport" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CDPassport" inverseName="toEmployee" inverseEntity="CDPassport"/>
-        <relationship name="toVehicle" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CDVehicle" inverseName="toEmployee" inverseEntity="CDVehicle"/>
+        <relationship name="toPassport" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CDPassport" inverseName="toEmployee" inverseEntity="CDPassport"/>
+        <relationship name="toVehicle" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="CDVehicle" inverseName="toEmployee" inverseEntity="CDVehicle"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>

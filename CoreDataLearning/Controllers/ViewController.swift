@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class ViewController: UIViewController {
     
@@ -14,7 +15,13 @@ class ViewController: UIViewController {
     
     //MARK: - Properties
     private var manager = EmployeeManager()
-    private var employees: [Employee] = []
+    //private var employees: [Employee] = []
+    
+    private lazy var employeeDataProvider: EmployeeProvider =
+    {
+        let dataProvider = EmployeeProvider(With: self)
+        return dataProvider
+    }()
 
     //MARK: - view LifeCycle
     override func viewDidLoad() {
@@ -31,14 +38,18 @@ class ViewController: UIViewController {
         let btnPassport = UIBarButtonItem(image: UIImage(systemName: "menucard"), style: .plain, target: self, action: #selector(self.passportAction))
         let btnVehicle = UIBarButtonItem(image: UIImage(systemName: "car.side"), style: .plain, target: self, action: #selector(self.vehicleAction))
         navigationItem.rightBarButtonItems = [btnAdd, btnPassport, btnVehicle]
+        
+        
+        let btnAnimals = UIBarButtonItem(image: UIImage(systemName: "pawprint"), style: .plain, target: self, action: #selector(self.animalAction))
+        navigationItem.leftBarButtonItem = btnAnimals
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.employees = self.manager.getAllEmployee() ?? []
+        //self.employees = self.manager.getAllEmployee() ?? []
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
     }
     
     //MARK: - Helper Methods
@@ -64,7 +75,11 @@ class ViewController: UIViewController {
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
-    
+    @objc func animalAction() {
+        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AnimalsViewController") as? AnimalsViewController {
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
 }
 
 extension ViewController: UITableViewDelegate {
@@ -74,13 +89,15 @@ extension ViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let obj = self.employees[indexPath.row]
+        let obj = self.employeeDataProvider.fetchedResultController.object(at: indexPath) //self.employees[indexPath.row]
         
         let edit = UIContextualAction(style: .normal, title: "Edit") { action, view, complete in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AddEditViewController") as? AddEditViewController {
                 vc.isFromEdit = true
                 vc.empId = obj.id
-                vc.vehicles = obj.vehicles ?? []
+                vc.vehicles = obj.toVehicle?.map({ cdVehicle in
+                    return cdVehicle.convertToVehicle()
+                }) ?? [] //obj.vehicles ?? []
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             complete(true)
@@ -90,7 +107,9 @@ extension ViewController: UITableViewDelegate {
         
         let vehicle = UIContextualAction(style: .normal, title: "Vehicle") { action, view, complete in
             if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VehiclesViewController") as? VehiclesViewController {
-                vc.vehicles = obj.vehicles ?? []
+                vc.vehicles = obj.toVehicle?.map({ cdVehicle in
+                    return cdVehicle.convertToVehicle()
+                }) ?? [] //obj.vehicles ?? []
                 self.navigationController?.pushViewController(vc, animated: true)
             }
             complete(true)
@@ -99,8 +118,7 @@ extension ViewController: UITableViewDelegate {
         vehicle.backgroundColor = .brown
         
         let delete = UIContextualAction(style: .destructive, title: "Delete") { action, view, complete in
-            if self.manager.deleteEmployee(byIdentifier: obj.id) {
-                self.employees.removeAll(where: { ( $0.id == obj.id ) })
+            if self.manager.deleteEmployee(byIdentifier: obj.id!) {
                 self.tableView.reloadData()
             }
             complete(true)
@@ -108,7 +126,7 @@ extension ViewController: UITableViewDelegate {
         delete.image = UIImage(systemName: "trash")
         delete.image?.withTintColor(.white)
         delete.backgroundColor = .red
-        if obj.vehicles?.count ?? 0 <= 0 {
+        if obj.toVehicle?.count ?? 0 <= 0 {
             return UISwipeActionsConfiguration(actions: [delete, edit])
         } else {
             return UISwipeActionsConfiguration(actions: [delete, edit, vehicle])
@@ -118,17 +136,25 @@ extension ViewController: UITableViewDelegate {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.employees.count
+        return self.employeeDataProvider.fetchedResultController.fetchedObjects?.count ?? 0 //self.employees.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = self.tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell {
-            let obj = self.employees[indexPath.row]
-            cell.imgProfilePic.image = UIImage(data: obj.profilePicture)
+            let obj = self.employeeDataProvider.fetchedResultController.object(at: indexPath) //self.employees[indexPath.row]
+            if let profilePic = obj.profilePic {
+                cell.imgProfilePic.image = UIImage(data: profilePic)
+            }
             cell.lblName.text = obj.name
             cell.lblEmail.text = obj.email
             return cell
         }
         return UITableViewCell()
+    }
+}
+
+extension ViewController: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        self.tableView.reloadData()
     }
 }

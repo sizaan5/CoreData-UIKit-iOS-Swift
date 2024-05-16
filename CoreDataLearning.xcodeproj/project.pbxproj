@@ -23,6 +23,18 @@
 		330B76202BF387AD006CBFC1 /* VehiclesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */; };
 		330B76212BF387AD006CBFC1 /* VehiclesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */; };
 		330B76232BF38841006CBFC1 /* VehicleManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76222BF38841006CBFC1 /* VehicleManager.swift */; };
+		330B76742BF4C354006CBFC1 /* EmployeeProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76732BF4C354006CBFC1 /* EmployeeProvider.swift */; };
+		330B76762BF4D3E7006CBFC1 /* AnimalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76752BF4D3E7006CBFC1 /* AnimalsViewController.swift */; };
+		330B76782BF4D4EC006CBFC1 /* Animal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76772BF4D4EC006CBFC1 /* Animal.swift */; };
+		330B767B2BF4D538006CBFC1 /* AnimalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B767A2BF4D538006CBFC1 /* AnimalViewModel.swift */; };
+		330B767D2BF4D57B006CBFC1 /* AnimalBaseRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B767C2BF4D57B006CBFC1 /* AnimalBaseRepository.swift */; };
+		330B767F2BF4D632006CBFC1 /* AnimalDataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B767E2BF4D632006CBFC1 /* AnimalDataRepository.swift */; };
+		330B76812BF4D662006CBFC1 /* CDAnimalExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76802BF4D662006CBFC1 /* CDAnimalExtension.swift */; };
+		330B76842BF4D725006CBFC1 /* AnimalApiRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76832BF4D725006CBFC1 /* AnimalApiRepository.swift */; };
+		330B76872BF4D82B006CBFC1 /* CDAnimal+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76852BF4D82B006CBFC1 /* CDAnimal+CoreDataClass.swift */; };
+		330B76882BF4D82B006CBFC1 /* CDAnimal+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76862BF4D82B006CBFC1 /* CDAnimal+CoreDataProperties.swift */; };
+		330B768B2BF4D8DD006CBFC1 /* AnimalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 330B76892BF4D8DD006CBFC1 /* AnimalTableViewCell.swift */; };
+		330B768C2BF4D8DD006CBFC1 /* AnimalTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 330B768A2BF4D8DD006CBFC1 /* AnimalTableViewCell.xib */; };
 		33A0568B2BF21E690054FDB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568A2BF21E690054FDB1 /* AppDelegate.swift */; };
 		33A0568D2BF21E690054FDB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568C2BF21E690054FDB1 /* SceneDelegate.swift */; };
 		33A0568F2BF21E690054FDB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33A0568E2BF21E690054FDB1 /* ViewController.swift */; };
@@ -63,6 +75,18 @@
 		330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehiclesTableViewCell.swift; sourceTree = "<group>"; };
 		330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VehiclesTableViewCell.xib; sourceTree = "<group>"; };
 		330B76222BF38841006CBFC1 /* VehicleManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VehicleManager.swift; sourceTree = "<group>"; };
+		330B76732BF4C354006CBFC1 /* EmployeeProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeProvider.swift; sourceTree = "<group>"; };
+		330B76752BF4D3E7006CBFC1 /* AnimalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalsViewController.swift; sourceTree = "<group>"; };
+		330B76772BF4D4EC006CBFC1 /* Animal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animal.swift; sourceTree = "<group>"; };
+		330B767A2BF4D538006CBFC1 /* AnimalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalViewModel.swift; sourceTree = "<group>"; };
+		330B767C2BF4D57B006CBFC1 /* AnimalBaseRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalBaseRepository.swift; sourceTree = "<group>"; };
+		330B767E2BF4D632006CBFC1 /* AnimalDataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalDataRepository.swift; sourceTree = "<group>"; };
+		330B76802BF4D662006CBFC1 /* CDAnimalExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDAnimalExtension.swift; sourceTree = "<group>"; };
+		330B76832BF4D725006CBFC1 /* AnimalApiRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalApiRepository.swift; sourceTree = "<group>"; };
+		330B76852BF4D82B006CBFC1 /* CDAnimal+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAnimal+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		330B76862BF4D82B006CBFC1 /* CDAnimal+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAnimal+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		330B76892BF4D8DD006CBFC1 /* AnimalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimalTableViewCell.swift; sourceTree = "<group>"; };
+		330B768A2BF4D8DD006CBFC1 /* AnimalTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AnimalTableViewCell.xib; sourceTree = "<group>"; };
 		33A056872BF21E690054FDB1 /* CoreDataLearning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataLearning.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33A0568A2BF21E690054FDB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33A0568C2BF21E690054FDB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +129,33 @@
 				330B76042BF34447006CBFC1 /* CDEmployeeExtension.swift */,
 				330B76062BF34466006CBFC1 /* CDPassportExtension.swift */,
 				330B76182BF37C54006CBFC1 /* CDVehicleExtension.swift */,
+				330B76802BF4D662006CBFC1 /* CDAnimalExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		330B76722BF4C342006CBFC1 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				330B76732BF4C354006CBFC1 /* EmployeeProvider.swift */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		330B76792BF4D525006CBFC1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				330B767A2BF4D538006CBFC1 /* AnimalViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		330B76822BF4D6DA006CBFC1 /* APIResources */ = {
+			isa = PBXGroup;
+			children = (
+				330B76832BF4D725006CBFC1 /* AnimalApiRepository.swift */,
+			);
+			path = APIResources;
 			sourceTree = "<group>";
 		};
 		33A0567E2BF21E690054FDB1 = {
@@ -131,8 +180,10 @@
 				33A056B02BF228400054FDB1 /* Managers */,
 				33A056AD2BF223960054FDB1 /* Models */,
 				33A056AA2BF2235D0054FDB1 /* Repository */,
+				330B76822BF4D6DA006CBFC1 /* APIResources */,
 				33A056A32BF222780054FDB1 /* CoreDataSupportFiles */,
 				33A056B52BF22C260054FDB1 /* Nibs */,
+				330B76792BF4D525006CBFC1 /* ViewModels */,
 				33A056A12BF220CD0054FDB1 /* Controllers */,
 				33A056A22BF220D80054FDB1 /* Storyboards */,
 				33A0568A2BF21E690054FDB1 /* AppDelegate.swift */,
@@ -147,7 +198,9 @@
 		33A056A12BF220CD0054FDB1 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				330B76722BF4C342006CBFC1 /* DataProvider */,
 				33A0568E2BF21E690054FDB1 /* ViewController.swift */,
+				330B76752BF4D3E7006CBFC1 /* AnimalsViewController.swift */,
 				33A056B32BF22B290054FDB1 /* AddEditViewController.swift */,
 				330B760A2BF352AD006CBFC1 /* PassportViewController.swift */,
 				330B761A2BF37DEF006CBFC1 /* VehiclesViewController.swift */,
@@ -168,6 +221,8 @@
 		33A056A32BF222780054FDB1 /* CoreDataSupportFiles */ = {
 			isa = PBXGroup;
 			children = (
+				330B76852BF4D82B006CBFC1 /* CDAnimal+CoreDataClass.swift */,
+				330B76862BF4D82B006CBFC1 /* CDAnimal+CoreDataProperties.swift */,
 				330B76102BF37709006CBFC1 /* CDVehicle+CoreDataClass.swift */,
 				330B76112BF37709006CBFC1 /* CDVehicle+CoreDataProperties.swift */,
 				33A056BB2BF243AB0054FDB1 /* CDPassport+CoreDataClass.swift */,
@@ -176,6 +231,7 @@
 				33A056A52BF2228F0054FDB1 /* CDEmployee+CoreDataProperties.swift */,
 				330B76032BF34427006CBFC1 /* Extensions */,
 				33A056A82BF222BA0054FDB1 /* PersistentStorage.swift */,
+				330B767E2BF4D632006CBFC1 /* AnimalDataRepository.swift */,
 			);
 			path = CoreDataSupportFiles;
 			sourceTree = "<group>";
@@ -187,6 +243,7 @@
 				33A056AB2BF223670054FDB1 /* EmployeeDataRepository.swift */,
 				33A056C12BF245400054FDB1 /* PassportDataRepository.swift */,
 				330B76162BF37C12006CBFC1 /* VehicleDataRepository.swift */,
+				330B767C2BF4D57B006CBFC1 /* AnimalBaseRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -197,6 +254,7 @@
 				33A056AE2BF223A70054FDB1 /* Employee.swift */,
 				33A056BF2BF244550054FDB1 /* Passport.swift */,
 				330B76142BF37B54006CBFC1 /* Vehicle.swift */,
+				330B76772BF4D4EC006CBFC1 /* Animal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -228,6 +286,8 @@
 				330B760D2BF352C4006CBFC1 /* PassportTableViewCell.xib */,
 				330B761E2BF387AD006CBFC1 /* VehiclesTableViewCell.swift */,
 				330B761F2BF387AD006CBFC1 /* VehiclesTableViewCell.xib */,
+				330B76892BF4D8DD006CBFC1 /* AnimalTableViewCell.swift */,
+				330B768A2BF4D8DD006CBFC1 /* AnimalTableViewCell.xib */,
 			);
 			path = TableView;
 			sourceTree = "<group>";
@@ -292,6 +352,7 @@
 			files = (
 				33A0569A2BF21E6A0054FDB1 /* LaunchScreen.storyboard in Resources */,
 				33A056BA2BF22C5E0054FDB1 /* EmployeeTableViewCell.xib in Resources */,
+				330B768C2BF4D8DD006CBFC1 /* AnimalTableViewCell.xib in Resources */,
 				330B76212BF387AD006CBFC1 /* VehiclesTableViewCell.xib in Resources */,
 				33A056972BF21E6A0054FDB1 /* Assets.xcassets in Resources */,
 				33A056922BF21E690054FDB1 /* Main.storyboard in Resources */,
@@ -307,17 +368,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				33A056952BF21E690054FDB1 /* CoreDataLearning.xcdatamodeld in Sources */,
+				330B76782BF4D4EC006CBFC1 /* Animal.swift in Sources */,
 				330B761B2BF37DEF006CBFC1 /* VehiclesViewController.swift in Sources */,
 				330B760E2BF352C4006CBFC1 /* PassportTableViewCell.swift in Sources */,
+				330B76872BF4D82B006CBFC1 /* CDAnimal+CoreDataClass.swift in Sources */,
+				330B76882BF4D82B006CBFC1 /* CDAnimal+CoreDataProperties.swift in Sources */,
 				33A056AF2BF223A70054FDB1 /* Employee.swift in Sources */,
 				330B76202BF387AD006CBFC1 /* VehiclesTableViewCell.swift in Sources */,
 				330B76192BF37C54006CBFC1 /* CDVehicleExtension.swift in Sources */,
 				330B76152BF37B54006CBFC1 /* Vehicle.swift in Sources */,
 				330B76072BF34466006CBFC1 /* CDPassportExtension.swift in Sources */,
 				330B760B2BF352AD006CBFC1 /* PassportViewController.swift in Sources */,
+				330B767F2BF4D632006CBFC1 /* AnimalDataRepository.swift in Sources */,
 				330B76172BF37C12006CBFC1 /* VehicleDataRepository.swift in Sources */,
+				330B767D2BF4D57B006CBFC1 /* AnimalBaseRepository.swift in Sources */,
+				330B768B2BF4D8DD006CBFC1 /* AnimalTableViewCell.swift in Sources */,
 				33A056AC2BF223670054FDB1 /* EmployeeDataRepository.swift in Sources */,
 				330B761D2BF3825B006CBFC1 /* AddVehicleViewController.swift in Sources */,
+				330B767B2BF4D538006CBFC1 /* AnimalViewModel.swift in Sources */,
+				330B76812BF4D662006CBFC1 /* CDAnimalExtension.swift in Sources */,
 				33A056B22BF228570054FDB1 /* EmployeeManager.swift in Sources */,
 				33A056A62BF2228F0054FDB1 /* CDEmployee+CoreDataClass.swift in Sources */,
 				33A056B92BF22C5E0054FDB1 /* EmployeeTableViewCell.swift in Sources */,
@@ -332,8 +401,11 @@
 				33A056BE2BF243AB0054FDB1 /* CDPassport+CoreDataProperties.swift in Sources */,
 				33A0568D2BF21E690054FDB1 /* SceneDelegate.swift in Sources */,
 				33A056C02BF244550054FDB1 /* Passport.swift in Sources */,
+				330B76762BF4D3E7006CBFC1 /* AnimalsViewController.swift in Sources */,
+				330B76842BF4D725006CBFC1 /* AnimalApiRepository.swift in Sources */,
 				330B76092BF34AE6006CBFC1 /* PassportManager.swift in Sources */,
 				330B76052BF34447006CBFC1 /* CDEmployeeExtension.swift in Sources */,
+				330B76742BF4C354006CBFC1 /* EmployeeProvider.swift in Sources */,
 				33A056C22BF245400054FDB1 /* PassportDataRepository.swift in Sources */,
 				33A056A92BF222BA0054FDB1 /* PersistentStorage.swift in Sources */,
 				33A056BD2BF243AB0054FDB1 /* CDPassport+CoreDataClass.swift in Sources */,
